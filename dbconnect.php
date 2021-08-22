@@ -52,6 +52,22 @@ class Database{
            echo "Incorrect username or password";
     }
 
+
+
+    public function addbook($data){
+
+
+        $sql="INSERT INTO products (PID,Title,Author,MRP,Price,Discount,Available,Publisher,Edition,Description,Language,page,weight) 
+        VALUES($data[PID],'$data[Title]','$data[Author]','$data[MRP]','$data[Price]','$data[Discount]','$data[Available]','$data[Publisher]','$data[Edition]','$data[Description]','$data[Language]','$data[page]','$data[weight]')";
+
+        $result=mysqli_query($this->conn,$sql);
+
+    }
+
+
+
+
+
 }
 
 
