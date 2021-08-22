@@ -1,20 +1,26 @@
 <?php
 session_start();
-// include "dbconnect.php";
+ include "dbconnect.php";
 
-// $db=new Database();
-// $con=$db->getconnection();
+$db=new Database();
+$con=$db->getconnection();
 
 
 
 //print_r($_POST['PID']);
-$sql="INSERT INTO products (PID,Title,Author,MRP,Price,Discount,Available,Publisher,Edition,Description,Language,page,weight) 
-VALUES($_POST[PID],$_POST[Title],$_POST[Aut],$_POST[MRP],$_POST[Price],$_POST[Discount],$_POST[Available],$_POST[Publisher],$_POST[Edition],$_POST[Description],$_POST[Language],$_POST[page],$_POST[weight])";
+// $sql="INSERT INTO products (PID,Title,Author,MRP,Price,Discount,Available,Publisher,Edition,Description,Language,page,weight) 
+// VALUES($_POST[PID],$_POST[Title],$_POST[AUT],$_POST[MRP],$_POST[Price],$_POST[Discount],$_POST[Available],$_POST[Publisher],$_POST[Edition],$_POST[Description],$_POST[Language],$_POST[page],$_POST[weight])";
 
+if(isset($_POST["submit"])){
+ $sql="INSERT INTO products (PID,Title,Author,MRP,Price,Discount,Available,Publisher,Edition,Description,Language,page,weight) 
+ VALUES($_POST[PID],$_POST[Title],$_POST[AUT],$_POST[MRP],$_POST[Price],$_POST[Discount],$_POST[Available],$_POST[Publisher],$_POST[Edition],$_POST[Description],$_POST[Language],$_POST[page],$_POST[weight])";
 
 
 print_r($sql);
-// $result=mysqli_query($this->conn,$sql);
+ $result=mysqli_query($con,$sql);
+
+}
+
 
 if(!isset($_SESSION['user']))
        header("location: index.php?Message=Login To Continue");
@@ -99,8 +105,8 @@ if(!isset($_SESSION['user']))
   <input type="text" id="Title" name="Title"><br>
   <br>
 
-  <label for="Aut">Aut:</label><br>
-  <input type="text" id="Aut" name="Aut"><br>
+  <label >AUT:</label><br>
+  <input type="text" id="AUT" name="AUT"><br>
   <br>
   <label for="MRP">MRP:</label><br>
   <input type="text" id="MRP" name="MRP"><br>
