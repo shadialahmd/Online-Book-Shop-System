@@ -75,9 +75,13 @@ if(!isset($_SESSION['user']))
 
     <?php
     include "dbconnect.php";
+
+    
+    $db=new Database();
+    $con=$db->getconnection();
     $PID=$_GET['ID'];
     $query = "SELECT * FROM products WHERE PID='$PID'";
-    $result = mysqli_query ($con,$query)or die(mysql_error());
+    $result = mysqli_query ($con,$query)or die(mysqli_error($con));
 
         if(mysqli_num_rows($result) > 0) 
         {   

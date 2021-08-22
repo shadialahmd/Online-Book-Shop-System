@@ -68,6 +68,10 @@ if(!isset($_SESSION['user']))
 
     <?php
     include "dbconnect.php";
+
+    
+    $db=new Database();
+    $con=$db->getconnection();
         if(isset($_GET['value']))
         {  
            $_SESSION['author']=$_GET['value'];
@@ -97,7 +101,7 @@ if(!isset($_SESSION['user']))
     } 
     else   
                   $query = "SELECT * FROM products WHERE Author='$author'";
-                  $result = mysqli_query ($con,$query)or die(mysql_error());
+                  $result = mysqli_query ($con,$query)or die(mysqli_error($con));
     $i=0;
     echo '<div class="container-fluid" id="books">
         <div class="row">
