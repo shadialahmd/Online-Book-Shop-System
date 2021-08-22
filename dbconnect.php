@@ -34,6 +34,24 @@ class Database{
         return $conn;
     }
 
+
+
+    public function login($username,$password){
+
+        $sql="SELECT * from users where UserName ='$username' AND Password='$password'";
+
+        $result=mysqli_query($this->conn,$sql);
+
+        if(mysqli_num_rows($result)>0){
+
+            $row=mysqli_fetch_assoc($result);
+            $_SESSION['user']=$row['UserName'];
+            header("Location: index.php?login=" . "Successfully Logged In");
+        }
+        else
+           echo "Incorrect username or password";
+    }
+
 }
 
 
