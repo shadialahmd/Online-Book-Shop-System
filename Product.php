@@ -1,5 +1,15 @@
 <?php
 session_start();
+// include "dbconnect.php";
+
+// $db=new Database();
+// $con=$db->getconnection();
+
+
+
+print_r($_GET);
+
+print_r($_SESSION);
 if(!isset($_SESSION['user']))
        header("location: index.php?Message=Login To Continue");
 ?>
@@ -71,6 +81,11 @@ if(!isset($_SESSION['user']))
 
     <?php
     include "dbconnect.php";
+
+        
+    $db=new Database();
+    $con=$db->getconnection();
+    
     if(isset($_GET['value']))
         {  
            $_SESSION['category']=$_GET['value'];
