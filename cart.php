@@ -3,6 +3,8 @@
   if(!isset($_SESSION['user']))
        header("location: index.php?Message=Login To Continue");
 	include "dbconnect.php";
+    $db=new Database();
+    $con=$db->getconnection();
          $customer=$_SESSION['user'];
 ?>
 <?php
