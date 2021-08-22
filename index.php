@@ -2,6 +2,10 @@
 session_start();
 include "dbconnect.php";
 
+
+$db=new Database();
+$con=$db->getconnection();
+
 if (isset($_GET['Message'])) {
     print '<script type="text/javascript">
                alert("' . $_GET['Message'] . '");
@@ -21,7 +25,7 @@ if(isset($_POST['submit']))
         $username=$_POST['login_username'];
         $password=$_POST['login_password'];
         $query = "SELECT * from users where UserName ='$username' AND Password='$password'";
-        $result = mysqli_query($con,$query)or die(mysql_error());
+        $result = mysqli_query($con,$query)or die(mysqli_error($con));
         if(mysqli_num_rows($result) > 0)
         {
              $row = mysqli_fetch_assoc($result);
@@ -41,7 +45,7 @@ if(isset($_POST['submit']))
         $username=$_POST['register_username'];
         $password=$_POST['register_password'];
         $query="select * from users where UserName = '$username'";
-        $result=mysqli_query($con,$query) or die(mysql_error);
+        $result=mysqli_query($con,$query) or die(mysqli_error($con));
         if(mysqli_num_rows($result)>0)
         {   
                print'

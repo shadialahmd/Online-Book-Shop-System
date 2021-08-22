@@ -14,7 +14,7 @@
 class Database{
 
 
-    private $host='localhos';
+    private $host='127.0.0.1';
     private $user='root';
     private $pass='';
     private $dbname='bookstore';
@@ -29,7 +29,7 @@ class Database{
 
         if(!$conn){
 
-            die("Error in DB connection".mysqli_error());
+            die("Error in DB connection".mysqli_error($this->conn));
         }
         return $conn;
     }
