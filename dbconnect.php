@@ -59,11 +59,6 @@ class Database{
 
         $sql="INSERT INTO products (PID,Title,Author,MRP,Price,Discount,Available,Publisher,Edition,Description,Language,page,weight) 
         VALUES($data[PID],'$data[Title]','$data[AUT]','$data[MRP]','$data[Price]','$data[Discount]','$data[Available]','$data[Publisher]','$data[Edition]','$data[Description]','$data[Language]','$data[page]','$data[weight]')";
-
-
-
-// print_r($sql);
-// die();
         $result=mysqli_query($this->getconnection(),$sql);
 
     }
