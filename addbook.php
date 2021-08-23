@@ -11,13 +11,16 @@ $con=$db->getconnection();
 // $sql="INSERT INTO products (PID,Title,Author,MRP,Price,Discount,Available,Publisher,Edition,Description,Language,page,weight) 
 // VALUES($_POST[PID],$_POST[Title],$_POST[AUT],$_POST[MRP],$_POST[Price],$_POST[Discount],$_POST[Available],$_POST[Publisher],$_POST[Edition],$_POST[Description],$_POST[Language],$_POST[page],$_POST[weight])";
 
-if(isset($_POST["submit"])){
- $sql="INSERT INTO products (PID,Title,Author,MRP,Price,Discount,Available,Publisher,Edition,Description,Language,page,weight) 
- VALUES($_POST[PID],$_POST[Title],$_POST[AUT],$_POST[MRP],$_POST[Price],$_POST[Discount],$_POST[Available],$_POST[Publisher],$_POST[Edition],$_POST[Description],$_POST[Language],$_POST[page],$_POST[weight])";
+if(isset($_POST['submit'])){
+
+  $db->addbook($_POST);
+//  $sql="INSERT INTO products (PID,Title,Author,MRP,Price,Discount,Available,Publisher,Edition,Description,Language,page,weight) 
+//  VALUES($_POST[PID],$_POST[Title],$_POST[AUT],$_POST[MRP],$_POST[Price],$_POST[Discount],$_POST[Available],$_POST[Publisher],$_POST[Edition],$_POST[Description],$_POST[Language],$_POST[page],$_POST[weight])";
 
 
-print_r($sql);
- $result=mysqli_query($con,$sql);
+// print_r($_POST);
+// print_r($sql);
+// $result=mysqli_query($con,$sql);
 
 }
 
