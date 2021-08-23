@@ -53,7 +53,6 @@ class Database{
     }
 
 
-
     public function addbook($data){
 
 
@@ -62,8 +61,6 @@ class Database{
         $result=mysqli_query($this->getconnection(),$sql);
 
     }
-
-
 
 
 
