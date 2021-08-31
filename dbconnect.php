@@ -64,6 +64,30 @@ class Database{
 
 
 
+//     // read products
+// function read(){
+  
+//     // select all query
+//     $query = "SELECT * FROM products";
+
+
+//     $result=mysqli_query($this->conn,$query);
+       
+//     // prepare query statement
+//     $stmt = $this->conn->prepare($query);
+
+//     if(mysqli_num_rows($result)>0){
+
+//     }
+  
+//     // execute query
+//     $stmt->execute();
+  
+//     return $stmt;
+// }
+
+
+
 }
 
 
